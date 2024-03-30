@@ -1,4 +1,5 @@
-﻿namespace RaheemRestaurant
+﻿
+namespace RaheemRestaurant
 {
     public partial class AppShell : Shell
     {

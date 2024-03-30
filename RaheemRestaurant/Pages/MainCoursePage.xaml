@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Author: Mohammad Raja-->
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RaheemRestaurant.Pages.MainCoursePage"
+             Title="MainCoursePage">
+    <VerticalStackLayout>
+        <Label x:Name="greetingLabel"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+        <HorizontalStackLayout Spacing="20" >
+
+            <Grid ColumnSpacing="10" RowSpacing="10"  >
+                <Grid.RowDefinitions>
+                    <RowDefinition></RowDefinition>
+
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                    <ColumnDefinition Width="Auto"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                <Image Source="shawarma_image.jpg" WidthRequest="100" Grid.Column="0"/>
+                <Label Text="Shawarma" Grid.Column="1"/>
+                <Label Text="Cost: $15" Grid.Column="2"/>
+                <ImageButton x:Name="Decrement" WidthRequest="10" Clicked="decrementBtnClicked" Source="increment_symbol.jpg"  Grid.Column="3" />
+                <Label Text="" x:Name="countLabel" Grid.Column="4"/>
+                <ImageButton x:Name="Increment" WidthRequest="10" Clicked="incrementBtnClicked" Source="decrement_symbol.jpg"  Grid.Column="5"/>
+            </Grid>
+
+
+
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!--Author: Nawaf Raheem -->
+    
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
+             x:Class="RaheemRestaurant.Pages.AccountSignupPage"
+             Title="AccountSignupPage">
+     <ScrollView>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height=".3*"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <!-- Create New Account Label RowDefinition-->
+                <RowDefinition Height="Auto"/>
+                <!-- FirstName Label + Entry RowDefinition -->
+                <RowDefinition Height="Auto"/>
+
+                <!-- LastName Label + Entry RowDefinition -->
+                <RowDefinition Height="Auto"/>
+                
+                <!-- Username Label + Entry RowDefinition -->
+                <RowDefinition Height="Auto"/>
+
+                <!-- Password Label + Entry RowDefinition -->
+                <RowDefinition Height="Auto"/>
+
+                <!--Email Entry RowDefinition -->
+                <RowDefinition Height="Auto"/>
+
+                <!--Create a new Account Button RowDefinition -->
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <Image Grid.Row ="0" Aspect="AspectFit" Source="restaurant_banner.jpg"/>
+
+            <Grid ColumnDefinitions="*,*,*,*,*">
+                <skia:SKLottieView
+                    Grid.Row="0"
+                    Grid.Column="2"
+                    HeightRequest="120"
+                    RepeatCount="-1"
+                    VerticalOptions="Center"
+                    Source="login_page.json" />
+            </Grid>
+            <Grid BackgroundColor="DarkGoldenrod" Opacity=".8"/>
+            <Label Text="Welcome to Raheem Restaurant" FontSize="45" VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
+                   FontAttributes="Bold"/>
+            <Image Source="delivery_logo.png"
+                   HeightRequest="100"
+                   Aspect="AspectFit"
+                    HorizontalOptions="Start"/>
+            <Image Source="delivery_logo.png"
+                   HeightRequest="120"
+                   Aspect="AspectFit"
+                   HorizontalOptions="End"/>
+            <!-- Create New Account Label-->
+            <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
+                <Label Text="Create a New Account" TextColor="White" FontSize="40"/>
+
+            </StackLayout>
+
+            <!-- FirstName Label + Entry -->
+            <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
+                <Label Text="First Name: " VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Enter your First Name" HorizontalOptions="FillAndExpand" x:Name="firstNameEntry"/>
+            </StackLayout>
+
+            <!-- LastName Label + Entry -->
+            <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
+                <Label Text="Last Name:" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Enter your Last Name" HorizontalOptions="FillAndExpand" x:Name="lastNameEntry"/>
+            </StackLayout>
+            
+            <!-- Username Label + Entry -->
+            <StackLayout Grid.Row="4" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
+                <Label Text="Username:" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Enter your Username" HorizontalOptions="FillAndExpand" x:Name="userNameEntry"/>
+            </StackLayout>
+
+            <!-- Password Label + Entry -->
+            <StackLayout Grid.Row="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
+                <Label Text="Password:" VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Enter your Password" HorizontalOptions="FillAndExpand" x:Name="passwordEntry" IsPassword="True"/>
+            </StackLayout>
+
+            <!-- Email Label + Entry -->
+            <StackLayout Grid.Row="6" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
+                <Label Text="Email: " VerticalOptions="Center" HorizontalOptions="Start"/>
+                <Entry Placeholder="Enter your Email" HorizontalOptions="FillAndExpand" x:Name="emailEntry" IsPassword="True"/>
+            </StackLayout>
+
+            <!-- Create Account Button -->
+            <Button Grid.Row="7" Text="Create Account" HorizontalOptions="Center" Margin="10" x:Name="createAccount" Clicked="createAccount_Clicked"/>
+
+        </Grid>
+
+
+
+    </ScrollView>
+</ContentPage>
