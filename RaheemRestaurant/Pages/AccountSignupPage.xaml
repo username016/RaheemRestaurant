@@ -29,6 +29,9 @@
                 <!--Email Entry RowDefinition -->
                 <RowDefinition Height="Auto"/>
 
+                <!--Phone Number Entry RowDefinition -->
+                <RowDefinition Height="Auto"/>
+
                 <!--Create a new Account Button RowDefinition -->
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -88,11 +91,19 @@
             <!-- Email Label + Entry -->
             <StackLayout Grid.Row="6" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
                 <Label Text="Email: " VerticalOptions="Center" HorizontalOptions="Start"/>
-                <Entry Placeholder="Enter your Email" HorizontalOptions="FillAndExpand" x:Name="emailEntry" IsPassword="True"/>
+                <Entry Placeholder="Enter your Email" HorizontalOptions="FillAndExpand" x:Name="emailEntry"/>
+            </StackLayout>
+
+            <!-- Phone Number Label + Entry -->
+            <StackLayout Grid.Row="7" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
+                <Label Text="Phone Number: " VerticalOptions="Center" HorizontalOptions="Start"  />
+                <Entry Placeholder="Enter your Phone Number" HorizontalOptions="FillAndExpand" x:Name="phoneNumberEntry" Keyboard="Numeric"/>
             </StackLayout>
 
             <!-- Create Account Button -->
-            <Button Grid.Row="7" Text="Create Account" HorizontalOptions="Center" Margin="10" x:Name="createAccount" Clicked="createAccount_Clicked"/>
+            <Button Grid.Row="8" Text="Create Account" HorizontalOptions="Center" Margin="10" x:Name="createAccount" Clicked="createAccount_Clicked"/>
+            
+            
 
         </Grid>
 

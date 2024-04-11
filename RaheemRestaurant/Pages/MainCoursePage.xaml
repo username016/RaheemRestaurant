@@ -13,7 +13,11 @@
 
             <Grid ColumnSpacing="10" RowSpacing="10"  >
                 <Grid.RowDefinitions>
-                    <RowDefinition></RowDefinition>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
 
                 </Grid.RowDefinitions>
                 <Grid.ColumnDefinitions>
@@ -27,9 +31,12 @@
                 <Image Source="shawarma_image.jpg" WidthRequest="100" Grid.Column="0"/>
                 <Label Text="Shawarma" Grid.Column="1"/>
                 <Label Text="Cost: $15" Grid.Column="2"/>
-                <ImageButton x:Name="Decrement" WidthRequest="10" Clicked="decrementBtnClicked" Source="increment_symbol.jpg"  Grid.Column="3" />
+                <ImageButton x:Name="Decrement" WidthRequest="10" Clicked="decrementBtnClicked" Source="decrement_symbol.jpg"  Grid.Column="3" />
                 <Label Text="" x:Name="countLabel" Grid.Column="4"/>
-                <ImageButton x:Name="Increment" WidthRequest="10" Clicked="incrementBtnClicked" Source="decrement_symbol.jpg"  Grid.Column="5"/>
+                <ImageButton x:Name="Increment" WidthRequest="10" Clicked="incrementBtnClicked" Source="increment_symbol.jpg"  Grid.Column="5"/>
+                
+                <Stepper x:Name="stepperTest" Grid.Row="4" Grid.Column="3" IsEnabled="True"/>
+                
             </Grid>
 
 

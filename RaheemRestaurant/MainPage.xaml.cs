@@ -58,6 +58,11 @@ namespace RaheemRestaurant
         {
             Navigation.PushAsync(new AccountSignupPage());
         }
+
+        private void adminPanelClicked(object sender, EventArgs e)
+        {
+            //Admin Panel Details -- Need to create admin panel page
+        }
     }
 
 }

@@ -26,6 +26,9 @@
 
                 <!--Create a new Account Button RowDefinition -->
                 <RowDefinition Height="Auto"/>
+
+                <!--Admin Panel RowDefinition -->
+                <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
                 <Image Grid.Row ="0" Aspect="AspectFit" Source="restaurant_banner.jpg"/>
@@ -76,6 +79,10 @@
 
             <!--Create a new Account Button -->
             <Button Grid.Row="6" Text="Create a New Account" HorizontalOptions="Center" Margin="10" Clicked="createNewAccountClicked"/>
+
+            <!--Admin Panel Button -->
+            <Button Grid.Row="7" Text="Admin Panel" HorizontalOptions="Center" Margin="10" Clicked="adminPanelClicked"/>
+
 
         </Grid>
 
