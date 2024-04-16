@@ -67,37 +67,37 @@
             <!-- FirstName Label + Entry -->
             <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
                 <Label Text="First Name: " VerticalOptions="Center" HorizontalOptions="Start"/>
-                <Entry Placeholder="Enter your First Name" HorizontalOptions="FillAndExpand" x:Name="firstNameEntry"/>
+                <Entry Placeholder="Enter your First Name" HorizontalOptions="FillAndExpand"  Text="{Binding FirstName}" x:Name="firstNameEntry"/>
             </StackLayout>
 
             <!-- LastName Label + Entry -->
             <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
                 <Label Text="Last Name:" VerticalOptions="Center" HorizontalOptions="Start"/>
-                <Entry Placeholder="Enter your Last Name" HorizontalOptions="FillAndExpand" x:Name="lastNameEntry"/>
+                <Entry Placeholder="Enter your Last Name" Text="{Binding LastName}" HorizontalOptions="FillAndExpand" x:Name="lastNameEntry"/>
             </StackLayout>
             
             <!-- Username Label + Entry -->
             <StackLayout Grid.Row="4" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
                 <Label Text="Username:" VerticalOptions="Center" HorizontalOptions="Start"/>
-                <Entry Placeholder="Enter your Username" HorizontalOptions="FillAndExpand" x:Name="userNameEntry"/>
+                <Entry Placeholder="Enter your Username" HorizontalOptions="FillAndExpand" Text="{Binding UserName}"  x:Name="userNameEntry"/>
             </StackLayout>
 
             <!-- Password Label + Entry -->
             <StackLayout Grid.Row="5" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
                 <Label Text="Password:" VerticalOptions="Center" HorizontalOptions="Start"/>
-                <Entry Placeholder="Enter your Password" HorizontalOptions="FillAndExpand" x:Name="passwordEntry" IsPassword="True"/>
+                <Entry Placeholder="Enter your Password" HorizontalOptions="FillAndExpand"  Text="{Binding Password}" x:Name="passwordEntry" IsPassword="True"/>
             </StackLayout>
 
             <!-- Email Label + Entry -->
             <StackLayout Grid.Row="6" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
                 <Label Text="Email: " VerticalOptions="Center" HorizontalOptions="Start"/>
-                <Entry Placeholder="Enter your Email" HorizontalOptions="FillAndExpand" x:Name="emailEntry"/>
+                <Entry Placeholder="Enter your Email" HorizontalOptions="FillAndExpand" Text="{Binding Email}" x:Name="emailEntry"/>
             </StackLayout>
 
             <!-- Phone Number Label + Entry -->
             <StackLayout Grid.Row="7" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
                 <Label Text="Phone Number: " VerticalOptions="Center" HorizontalOptions="Start"  />
-                <Entry Placeholder="Enter your Phone Number" HorizontalOptions="FillAndExpand" x:Name="phoneNumberEntry" Keyboard="Numeric"/>
+                <Entry Placeholder="Enter your Phone Number" HorizontalOptions="FillAndExpand" Text="{Binding PhoneNumber}" x:Name="phoneNumberEntry" Keyboard="Numeric"/>
             </StackLayout>
 
             <!-- Create Account Button -->

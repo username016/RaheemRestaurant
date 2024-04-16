@@ -66,7 +66,7 @@ namespace RaheemRestaurant.BusinessLogic
             }
         }
 
-        public int ID { get { return _id; } }
+        public int ID { get { return _id; } set { _id = value; } }
 
         public string Password { get { return _password; } set { _password = value; } }
 

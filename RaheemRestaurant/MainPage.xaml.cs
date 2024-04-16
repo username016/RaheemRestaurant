@@ -1,4 +1,8 @@
-﻿using RaheemRestaurant.Pages;
+﻿using RaheemRestaurant.BusinessLogic;
+using RaheemRestaurant.Pages;
+using System.Collections.ObjectModel;
+using System.Diagnostics;
+using System.Text.Json;
 
 /* Author: Nawaf Raheem  */
 
@@ -8,10 +12,41 @@ namespace RaheemRestaurant
     public partial class MainPage : ContentPage
     {
 
+
+        private ObservableCollection<Users> _allUsers = new ObservableCollection<Users>();
+
         public MainPage()
         {
             InitializeComponent();
+            
+           LoadUsersFromFile();
         }
+
+        private void LoadUsersFromFile()
+        {
+            string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "RaheemRestaurant/RaheemRestaurant/Resources/Raw");
+            string filePath = Path.Combine(folderPath, "users.json");
+
+            if (File.Exists(filePath))
+            {
+                string jsonString = File.ReadAllText(filePath);
+                if (!string.IsNullOrWhiteSpace(jsonString))
+                {
+                    try
+                    {
+                        _allUsers = JsonSerializer.Deserialize<ObservableCollection<Users>>(jsonString);
+                    }
+                    catch (JsonException ex)
+                    {
+                        Debug.WriteLine($"JSON deserialization error: {ex.Message}");
+                        // Consider user feedback or logging
+                    }
+                }
+            }
+        }
+
+
+
 
         protected override void OnAppearing()
         {
@@ -28,10 +63,13 @@ namespace RaheemRestaurant
         {
 
             var username = userNameEntry.Text; // Access the Entry's text using its x:Name
-            if (!string.IsNullOrWhiteSpace(username))
+            var password = passwordEntry.Text;
+
+          /*  if (!string.IsNullOrWhiteSpace(username))
             {
                 await Navigation.PushAsync(new MainCoursePage(username));
             }
+          */
 
             // Check if either userNameEntry or passwordEntry is null or empty
             if (string.IsNullOrEmpty(userNameEntry.Text) || string.IsNullOrEmpty(passwordEntry.Text))
@@ -41,8 +79,17 @@ namespace RaheemRestaurant
             }
             else
             {
-                // Proceed with navigation if both fields are filled
-                await Navigation.PushAsync(new MainCoursePage(username));
+                var user = _allUsers.FirstOrDefault(u => u.UserName == username && u.Password == password);
+                if (user != null)
+                {
+                    // Password matches, proceed to MainCoursePage
+                    await Navigation.PushAsync(new MainCoursePage(username));
+                }
+                else
+                {
+                    // User not found or password does not match
+                    await DisplayAlert("Error", "Invalid username or password", "OK");
+                }
             }
 
 

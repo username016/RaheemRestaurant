@@ -6,37 +6,41 @@ public partial class MainCoursePage : ContentPage
 {
     public MainCoursePage(string username)
     {
+
         InitializeComponent();
         greetingLabel.Text = $"Hey, {username}!";
+        
     }
 
 
 
-    int count = 0;
+    public int count = 0;
 
-    private void decrementBtnClicked(object sender, EventArgs e)
+    
+
+    
+
+
+    private void ShawarmaStepper_ValueChanged(object sender, ValueChangedEventArgs e)
     {
-        if (count !<= 0)
+        int viewCounter = Convert.ToInt32(countLabel.Text);
+
+         viewCounter = (int)e.NewValue; // Get the new value from the event args directly
+
+        if (viewCounter < 0)
         {
-            countLabel.Text = Convert.ToString(count--);
+            DisplayAlert("Error", "Can't order a negative item", "Okay");
+            // Reset the stepper's value if it's negative
+            ((Stepper)sender).Value = 0;
         }
-        else { count = 0; }
+        else
+        {
+            // Update the label with the new count
+            countLabel.Text = viewCounter.ToString();
+        }
 
 
     }
 
-    private void incrementBtnClicked(object sender, EventArgs e)
-    {
-        if (count !>= 0)
-        {
-            countLabel.Text = Convert.ToString(count++);
 
-        }
-        else { count = 0; }
-
-
-
-
-
-    }
 }
