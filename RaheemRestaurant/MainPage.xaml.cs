@@ -13,13 +13,16 @@ namespace RaheemRestaurant
     {
 
 
-        private ObservableCollection<Users> _allUsers = new ObservableCollection<Users>();
+        private ObservableCollection<Users> _allUsers; 
 
         public MainPage()
         {
             InitializeComponent();
-            
-           LoadUsersFromFile();
+
+            _allUsers = new ObservableCollection<Users>();
+            LoadUsersFromFile();
+          
+
         }
 
         private void LoadUsersFromFile()
@@ -30,18 +33,36 @@ namespace RaheemRestaurant
             if (File.Exists(filePath))
             {
                 string jsonString = File.ReadAllText(filePath);
+                Debug.WriteLine("JSON String: " + jsonString);  // Output the JSON string to debug
+
                 if (!string.IsNullOrWhiteSpace(jsonString))
                 {
                     try
                     {
-                        _allUsers = JsonSerializer.Deserialize<ObservableCollection<Users>>(jsonString);
+                        var users = JsonSerializer.Deserialize<ObservableCollection<Users>>(jsonString);
+                        if (users != null)
+                        {
+                            _allUsers = users;  // Directly assign the deserialized users to _allUsers
+                            Debug.WriteLine("Loaded users count: " + _allUsers.Count);  // Check how many users were loaded
+                        }
+                        else
+                        {
+                            Debug.WriteLine("Deserialization returned null");
+                        }
                     }
                     catch (JsonException ex)
                     {
                         Debug.WriteLine($"JSON deserialization error: {ex.Message}");
-                        // Consider user feedback or logging
                     }
                 }
+                else
+                {
+                    Debug.WriteLine("JSON file is empty or contains only whitespace.");
+                }
+            }
+            else
+            {
+                Debug.WriteLine("JSON file does not exist.");
             }
         }
 

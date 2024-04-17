@@ -21,7 +21,8 @@
                 <Label Text="Shawarma" Grid.Column="1"/>
                 <Label Text="Cost: $15" Grid.Column="2"/>
                 <Stepper x:Name="stepperTest" Grid.Column="3" IsEnabled="True" ValueChanged="ShawarmaStepper_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
-                <Label Text="0" x:Name="countLabel" Grid.Column="4"/>
+                <Label Text="Quantity" Grid.Column="4"/>
+                <Label Text="0" x:Name="countLabel" Grid.Column="5"/>
                 <Label Text="Toppings: " Grid.Row="1" Grid.Column="0"/>
 
             </Grid>
