@@ -57,11 +57,22 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <None Remove="Resources\Images\decrement_symbol.jpg" />
+	  <None Remove="Resources\Images\butterchicken.jpg" />
+	  <None Remove="Resources\Images\cheesecakedesert.jpg" />
+	  <None Remove="Resources\Images\cheesefriesappetizer.jpg" />
+	  <None Remove="Resources\Images\chickenbiryani.jpg" />
+	  <None Remove="Resources\Images\coke.jpg" />
 	  <None Remove="Resources\Images\delivery_logo.png" />
-	  <None Remove="Resources\Images\increment_symbol.jpg" />
+	  <None Remove="Resources\Images\fruitappetizer.jpg" />
+	  <None Remove="Resources\Images\gulabjamun.jpg" />
+	  <None Remove="Resources\Images\manakeesh.jpeg" />
+	  <None Remove="Resources\Images\marinatedringappetizer.jpg" />
+	  <None Remove="Resources\Images\nihari.jpeg" />
+	  <None Remove="Resources\Images\pepsi.jpeg" />
 	  <None Remove="Resources\Images\restaurant_banner.jpg" />
 	  <None Remove="Resources\Images\shawarma_image.jpg" />
+	  <None Remove="Resources\Images\springrollsappetizer.jpg" />
+	  <None Remove="Resources\Images\turkishcoffee.jpg" />
 	  <None Remove="Resources\raw\login_page.json" />
 	</ItemGroup>
 

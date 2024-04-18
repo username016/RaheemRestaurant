@@ -6,30 +6,174 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RaheemRestaurant.Pages.MainCoursePage"
              Title="MainCoursePage">
-    
-    <VerticalStackLayout>
+    <ScrollView>
+    <VerticalStackLayout >
         <Label x:Name="greetingLabel"
                Text="{Binding FirstName}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        <HorizontalStackLayout Spacing="20" >
+        
 
             <Grid ColumnSpacing="10" RowSpacing="10"  RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*,*" >
 
                 <Image Source="shawarma_image.jpg" WidthRequest="100" Grid.Column="0"/>
-                <Label Text="Shawarma" Grid.Column="1"/>
-                <Label Text="Cost: $15" Grid.Column="2"/>
-                <Stepper x:Name="stepperTest" Grid.Column="3" IsEnabled="True" ValueChanged="ShawarmaStepper_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
-                <Label Text="Quantity" Grid.Column="4"/>
-                <Label Text="0" x:Name="countLabel" Grid.Column="5"/>
+                <Label Text="Chicken Shawarma" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $15" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="chickenShawarmaStepperTest" Grid.Column="3" Grid.Row="0" IsEnabled="True"  ValueChanged="chickenShawarmaStepperTest_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="chickenShawarmaCountLabel" Grid.Column="5" Grid.Row="0"/>
                 <Label Text="Toppings: " Grid.Row="1" Grid.Column="0"/>
 
+                <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="6" >
+                    <Label Text="Price $1" />
+                    <Label Text=" Lettuce:" />
+                    <Switch x:Name="chickenShawarmaLettuceTopping" IsToggled="False" PropertyChanged="chickenShawarmaLettuceTopping_PropertyChanged" />
+                    <Label Text="Price $1 "  />
+                    <Label Text=" Tomato" />
+                    <Switch x:Name="chickenShawarmaTomatoTopping" IsToggled="False" PropertyChanged="chickenShawarmaTomatoTopping_PropertyChanged" />
+                    <Label Text="Price $1" />
+                    <Label Text=" Pickles:" />
+                    <Switch x:Name="chickenShawarmaPickleTopping" IsToggled="False" PropertyChanged="chickenShawarmaPickleTopping_PropertyChanged" />
+                    <Label Text="Price $1 "/>
+                    <Label Text=" Olives" />
+                    <Switch x:Name="chickenShawarmaOlivesTopping" IsToggled="False" PropertyChanged="chickenShawarmaOlivesTopping_PropertyChanged"/>
+                    <Label Text="Price $1" />
+                    <Label Text=" Cucumber   "/>
+                    <Switch x:Name="chickenShawarmaCucumberTopping" IsToggled="False" PropertyChanged="chickenShawarmaCucumberTopping_PropertyChanged" Grid.Row="3" Grid.Column="4"/>
+                </HorizontalStackLayout>
             </Grid>
 
+            <Grid ColumnSpacing="10" RowSpacing="10"  RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*,*" >
 
+                <Image Source="butterchicken.jpg" WidthRequest="100" HeightRequest="100" Grid.Column="0"/>
+                <Label Text="Butter Chicken" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $12" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="butterChickenstepperTest" Grid.Column="3" Grid.Row="0" IsEnabled="True" ValueChanged="butterChickenstepperTest_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="butterChickenCountLabel" Grid.Column="5" Grid.Row="0"/>
+                <Label Text="Toppings: " Grid.Row="1" Grid.Column="0"/>
 
-        </HorizontalStackLayout>
+                <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="6" >
+                    <Label Text="Price $1" />
+                    <Label Text=" Lettuce:" />
+                    <Switch x:Name="butterChickenLettuceTopping" IsToggled="False" PropertyChanged="butterChickenLettuceTopping_PropertyChanged" />
+                    <Label Text="Price $1 "  />
+                    <Label Text=" Tomato" />
+                    <Switch x:Name="butterChickenTomatoTopping" IsToggled="False" PropertyChanged="butterChickenTomatoTopping_PropertyChanged" />
+                    <Label Text="Price $1" />
+                    <Label Text=" Pickles:" />
+                    <Switch x:Name="butterChickenPickleTopping" IsToggled="False" PropertyChanged="butterChickenPickleTopping_PropertyChanged" />
+                    <Label Text="Price $1 "/>
+                    <Label Text=" Olives" />
+                    <Switch x:Name="butterChickenOlivesTopping" IsToggled="False" PropertyChanged="butterChickenOlivesTopping_PropertyChanged"/>
+                    <Label Text="Price $1" />
+                    <Label Text=" Cucumber   "/>
+                    <Switch x:Name="butterChickenCucumberTopping" IsToggled="False" PropertyChanged="butterChickenCucumberTopping_PropertyChanged" Grid.Row="3" Grid.Column="4"/>
+                </HorizontalStackLayout>
+            </Grid>
 
-    </VerticalStackLayout>
+            <Grid ColumnSpacing="10" RowSpacing="10"  RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*,*" >
+
+                <Image Source="chickenbiryani.jpg" WidthRequest="100" Grid.Column="0"/>
+                <Label Text="Chicken Biryani" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $17.99" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="chickenBiryaniStepperTest" Grid.Column="3" Grid.Row="0" IsEnabled="True" ValueChanged="chickenBiryaniStepperTest_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="chickenBiryaniCountLabel" Grid.Column="5" Grid.Row="0"/>
+                <Label Text="Toppings: " Grid.Row="1" Grid.Column="0"/>
+
+                <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="6" >
+                    <Label Text="Price $1" />
+                    <Label Text=" Lettuce:" />
+                    <Switch x:Name="chickenBiryaniLettuceTopping" IsToggled="False" PropertyChanged="chickenBiryaniLettuceTopping_PropertyChanged" />
+                    <Label Text="Price $1 "  />
+                    <Label Text=" Tomato" />
+                    <Switch x:Name="chickenBiryaniTomatoTopping" IsToggled="False" PropertyChanged="chickenBiryaniTomatoTopping_PropertyChanged" />
+                    <Label Text="Price $1" />
+                    <Label Text=" Pickles:" />
+                    <Switch x:Name="chickenBiryaniPickleTopping" IsToggled="False" PropertyChanged="chickenBiryaniPickleTopping_PropertyChanged" />
+                    <Label Text="Price $1 "/>
+                    <Label Text=" Olives" />
+                    <Switch x:Name="chickenBiryaniOlivesTopping" IsToggled="False" PropertyChanged="chickenBiryaniOlivesTopping_PropertyChanged"/>
+                    <Label Text="Price $1" />
+                    <Label Text=" Cucumber   "/>
+                    <Switch x:Name="chickenBiryaniCucumberTopping" IsToggled="False" PropertyChanged="chickenBiryaniCucumberTopping_PropertyChanged" Grid.Row="3" Grid.Column="4"/>
+                </HorizontalStackLayout>
+            </Grid>
+
+            <Grid ColumnSpacing="10" RowSpacing="10"  RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*,*" >
+
+                <Image Source="manakeesh.jpeg" WidthRequest="100" Grid.Column="0"/>
+                <Label Text="Manakeesh" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $15" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="manakeeshStepperTest" Grid.Column="3" Grid.Row="0" IsEnabled="True" ValueChanged="manakeeshStepperTest_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="manakeeshCountLabel" Grid.Column="5" Grid.Row="0"/>
+                <Label Text="Toppings: " Grid.Row="1" Grid.Column="0"/>
+
+                <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="6" >
+                    <Label Text="Price $1" />
+                    <Label Text=" Lettuce:" />
+                    <Switch x:Name="manakeeshLettuceTopping" IsToggled="False" PropertyChanged="manakeeshLettuceTopping_PropertyChanged" />
+                    <Label Text="Price $1 "  />
+                    <Label Text=" Tomato" />
+                    <Switch x:Name="manakeeshTomatoTopping" IsToggled="False" PropertyChanged="manakeeshTomatoTopping_PropertyChanged" />
+                    <Label Text="Price $1" />
+                    <Label Text=" Pickles:" />
+                    <Switch x:Name="manakeeshPickleTopping" IsToggled="False" PropertyChanged="manakeeshPickleTopping_PropertyChanged" />
+                    <Label Text="Price $1 "/>
+                    <Label Text=" Olives" />
+                    <Switch x:Name="manakeeshOlivesTopping" IsToggled="False" PropertyChanged="manakeeshOlivesTopping_PropertyChanged"/>
+                    <Label Text="Price $1" />
+                    <Label Text=" Cucumber   "/>
+                    <Switch x:Name="manakeeshCucumberTopping" IsToggled="False" PropertyChanged="manakeeshCucumberTopping_PropertyChanged" Grid.Row="3" Grid.Column="4"/>
+                </HorizontalStackLayout>
+            </Grid>
+
+            <Grid ColumnSpacing="10" RowSpacing="10"  RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*,*" >
+
+                <Image Source="nihari.jpeg" WidthRequest="100" Grid.Column="0"/>
+                <Label Text="Nihari" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $15" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="nihariStepperTest" Grid.Column="3" Grid.Row="0" IsEnabled="True" ValueChanged="nihariStepperTest_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="nihariCountLabel" Grid.Column="5" Grid.Row="0"/>
+                <Label Text="Toppings: " Grid.Row="1" Grid.Column="0"/>
+
+                <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="6" >
+                    <Label Text="Price $1" />
+                    <Label Text=" Lettuce:" />
+                    <Switch x:Name="nihariLettuceTopping" IsToggled="False" PropertyChanged="nihariLettuceTopping_PropertyChanged" />
+                    <Label Text="Price $1 "  />
+                    <Label Text=" Tomato" />
+                    <Switch x:Name="nihariTomatoTopping" IsToggled="False" PropertyChanged="nihariTomatoTopping_PropertyChanged" />
+                    <Label Text="Price $1" />
+                    <Label Text=" Pickles:" />
+                    <Switch x:Name="nihariPickleTopping" IsToggled="False" PropertyChanged="nihariPickleTopping_PropertyChanged" />
+                    <Label Text="Price $1 "/>
+                    <Label Text=" Olives" />
+                    <Switch x:Name="nihariOlivesTopping" IsToggled="False" PropertyChanged="nihariOlivesTopping_PropertyChanged"/>
+                    <Label Text="Price $1" />
+                    <Label Text=" Cucumber   "/>
+                    <Switch x:Name="nihariCucumberTopping" IsToggled="False" PropertyChanged="nihariCucumberTopping_PropertyChanged" Grid.Row="3" Grid.Column="4"/>
+                </HorizontalStackLayout>
+            </Grid>
+
+            
+        
+            <HorizontalStackLayout>
+                <Label Text="Your Total Price = $" />
+                <Label x:Name="totalLabel" Text="{Binding Total}" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="40">
+                <Button Text="Total" x:Name="totalBtn" Clicked="totalBtn_Clicked"/>
+                <Button Text="Appetizer Page" x:Name="appetizerBtn" Clicked="appetizerBtn_Clicked"/>
+                <Button Text="Desert and Drinks Page"/>
+                <Button Text="Checkout Page"/>
+            </HorizontalStackLayout>
+        
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>

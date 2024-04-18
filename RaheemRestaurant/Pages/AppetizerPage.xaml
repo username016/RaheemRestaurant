@@ -3,10 +3,71 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RaheemRestaurant.Pages.AppetizerPage"
              Title="AppetizerPage">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
+    <ScrollView>
+        <VerticalStackLayout >
+            <Label x:Name="greetingLabel"
+               Text="{Binding FirstName}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+            <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
+                <Image Source="cheesecakedesert.jpg" WidthRequest="100" Grid.Column="0"/>
+                <Label Text="Cheese Cake" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $4.99" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="cheeseCakeStepper" Grid.Column="3" Grid.Row="0" IsEnabled="True" ValueChanged="cheeseCakeStepper_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="cheeseCakeCountLabel" Grid.Column="5" Grid.Row="0"/>
+            </Grid>
+
+            <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
+                <Image Source="cheesefriesappetizer.jpg" WidthRequest="100" HeightRequest="100" Grid.Column="0"/>
+                <Label Text="Cheese Fries" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $5.99" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="cheeseFriesStepper" Grid.Column="3" Grid.Row="0" IsEnabled="True" ValueChanged="cheeseFriesStepper_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="cheeseFriesCountLabel" Grid.Column="5" Grid.Row="0"/>
+            </Grid>
+
+            <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
+                <Image Source="gulabjamun.jpg" WidthRequest="100" Grid.Column="0"/>
+                <Label Text="Gulab Jamun" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $6.99" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="gulabJamunStepper" Grid.Column="3" Grid.Row="0" IsEnabled="True" ValueChanged="gulabJamunStepper_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="gulabJamunCountLabel" Grid.Column="5" Grid.Row="0"/>
+            </Grid>
+
+            <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
+                <Image Source="marinatedringappetizer.jpg" WidthRequest="100" Grid.Column="0"/>
+                <Label Text="Marinated Olives and Cheese Ring" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $6.99" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="marinatedRingStepper" Grid.Column="3" Grid.Row="0" IsEnabled="True" ValueChanged="marinatedRingStepper_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="marinatedRingCountLabel" Grid.Column="5" Grid.Row="0"/>
+            </Grid>
+
+            <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
+                <Image Source="fruitappetizer.jpg" WidthRequest="100" Grid.Column="0"/>
+                <Label Text="Fruit Charcuterie" Grid.Column="1" Grid.Row="0"/>
+                <Label Text="Cost: $7.99" Grid.Column="2" Grid.Row="0"/>
+                <Stepper x:Name="fruitCharcuterieStepper" Grid.Column="3" Grid.Row="0" IsEnabled="True" ValueChanged="fruitCharcuterieStepper_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
+                <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
+                <Label Text="0" x:Name="fruitCharcuterieCountLabel" Grid.Column="5" Grid.Row="0"/>
+            </Grid>
+
+
+            <HorizontalStackLayout>
+                <Label Text="Your Total Price = $" />
+                <Label x:Name="totalLabel" Text="{Binding Total}" />
+            </HorizontalStackLayout>
+
+            <HorizontalStackLayout Spacing="40">
+                <Button Text="Total" x:Name="totalBtn" Clicked="totalBtn_Clicked"/>
+                <Button Text="Main Course Page"/>
+                <Button Text="Desert and Drinks Page"/>
+                <Button Text="Checkout Page"/>
+            </HorizontalStackLayout>
+
+        </VerticalStackLayout>
+    </ScrollView>
 </ContentPage>
