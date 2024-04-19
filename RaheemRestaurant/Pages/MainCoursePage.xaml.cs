@@ -1,12 +1,17 @@
 // Author: Mohammad Raja
 using RaheemRestaurant.BusinessLogic;
-using RaheemRestaurant.DataLayer;
 namespace RaheemRestaurant.Pages;
+
+
+// Defines a partial class for the MainCoursePage, handling the business logic for main course selections and interactions.
 
 public partial class MainCoursePage : ContentPage
 {
 
     Food food;
+
+    // Constructor that initializes components and sets up the page environment.
+
     public MainCoursePage(string username)
     {
 
@@ -15,6 +20,7 @@ public partial class MainCoursePage : ContentPage
         food = new Food();
         
     }
+    // Variables to store the count of each main course item ordered.
 
     public int shawarmacount = 0;
     public int niharicount = 0;
@@ -22,12 +28,17 @@ public partial class MainCoursePage : ContentPage
     public int biryanicount = 0;
     public int butterchickencount = 0;
 
+    // Event handler for value changes in the chicken shawarma stepper.
 
     private void chickenShawarmaStepperTest_ValueChanged(object sender, ValueChangedEventArgs e)
     {
+        // Get the current value displayed in the label and update it based on the stepper's new value.
+
         int viewCounter = Convert.ToInt32(chickenShawarmaCountLabel.Text);
 
          viewCounter = (int)e.NewValue; // Get the new value from the event args directly
+
+        // Prevent negative quantities.
 
         if (viewCounter < 0)
         {
@@ -44,6 +55,8 @@ public partial class MainCoursePage : ContentPage
         shawarmacount = viewCounter;
     }
 
+    // Similar event handlers for other dishes like butter chicken, biryani, manakeesh, and nihari.
+    // Each handler follows the same pattern to update dish counts based on stepper interactions and ensures no negative values.
     private void butterChickenstepperTest_ValueChanged(object sender, ValueChangedEventArgs e)
     {
         int viewCounter = Convert.ToInt32(butterChickenCountLabel.Text);
@@ -127,6 +140,11 @@ public partial class MainCoursePage : ContentPage
         }
         niharicount = viewCounter;
     }
+
+    // Methods to handle property changes for various toppings for each dish.
+    // These methods typically check if a dish's count is more than one to apply toppings and adjust the food's topping price accordingly.
+    // If a switch is toggled on, the price for that topping is added; if toggled off, the price is subtracted.
+    // This logic ensures that topping prices are adjusted dynamically as users customize their dish with different toppings.
 
     private void chickenShawarmaLettuceTopping_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
     {
@@ -432,46 +450,57 @@ public partial class MainCoursePage : ContentPage
 
 
 
-
+    // Method to calculate the total price for all selected dishes and toppings.
     private void totalBtn_Clicked(object sender, EventArgs e)
     {
+        double shawarmatotal = 15 * shawarmacount;  // Calculate total price for chicken shawarma.
 
-        double shawarmatotal = 14.99 * shawarmacount; 
-        double biryanitotal = 10.00 * biryanicount;
-        double butterchickentotal = 12 * butterchickencount;
-        double manakeeshtotal = 5 * manakeeshcount;
-        double niharitotal = 10 * niharicount;
+        double biryanitotal = 17.99 * biryanicount;  // Calculate total price for biryani.
 
-        double total = shawarmatotal + biryanitotal + butterchickentotal + manakeeshtotal + niharitotal + food.ToppingPrice;  
+        double butterchickentotal = 12 * butterchickencount;  // Calculate total price for butter chicken.
 
-        totalLabel.Text = $"{total.ToString():C1}";
-        
+        double manakeeshtotal = 15 * manakeeshcount;  // Calculate total price for manakeesh.
 
+        double niharitotal = 15 * niharicount;  // Calculate total price for nihari.
+
+        double total = shawarmatotal + biryanitotal + butterchickentotal + manakeeshtotal + niharitotal + food.ToppingPrice;  // Sum up all dish totals and topping price.
+        totalLabel.Text = $"{total.ToString("C")}";  // Display the formatted total price.
     }
 
+
+
+    // Method to navigate to the AppetizerPage with the calculated total price.
     private void appetizerBtn_Clicked(object sender, EventArgs e)
     {
-        // Call the method to calculate the total
-        double total = CalculateTotal();
+        double total = CalculateTotal();  // Calculate the total from helper method.
 
-        string user = $"{greetingLabel.Text}";
+        string user = $"{greetingLabel.Text}";  // Retrieve the user's name.
 
-        // Navigate to AppetizerPage, passing the calculated total
-        Navigation.PushAsync(new AppetizerPage( user ,total));
-
+        Navigation.PushAsync(new AppetizerPage(user, total));  // Navigate to AppetizerPage with the user's name and calculated total.
     }
+
+    // Helper method to calculate the total price for all selected dishes and toppings.
 
     private double CalculateTotal()
     {
-        double shawarmatotal = 14.99 * shawarmacount;
-        double biryanitotal = 10.00 * biryanicount;
-        double butterchickentotal = 12 * butterchickencount;
-        double manakeeshtotal = 5 * manakeeshcount;
-        double niharitotal = 10 * niharicount;
+        double shawarmatotal = 14.99 * shawarmacount;  // Calculate total price for chicken shawarma.
+        double biryanitotal = 10.00 * biryanicount;  // Calculate total price for biryani.
+        double butterchickentotal = 12 * butterchickencount;  // Calculate total price for butter chicken.
+        double manakeeshtotal = 5 * manakeeshcount;  // Calculate total price for manakeesh.
+        double niharitotal = 10 * niharicount;  // Calculate total price for nihari.
 
-        double total = shawarmatotal + biryanitotal + butterchickentotal + manakeeshtotal + niharitotal + food.ToppingPrice;
-
-        return Convert.ToDouble(total);
+        double total = shawarmatotal + biryanitotal + butterchickentotal + manakeeshtotal + niharicount + food.ToppingPrice;  // Sum up all dish totals and topping price.
+        return Convert.ToDouble(total);  // Return the total price as a double.
     }
 
+    //Nawaf Making Edits to unused Pages
+    private void CheckoutPageButton_Clicked(object sender, EventArgs e)
+    {
+        DisplayAlert("Coming Soon", "Checkout Page is not yet available an attendant has been notified and will verify your order", "OK");
+    }
+
+    private void dessertAndDrinksBtnPressed(object sender, EventArgs e)
+    {
+        DisplayAlert("Coming Soon", "Dessert and Drinks are not yet available due to a restaurant supply issue", "OK");
+    }
 }

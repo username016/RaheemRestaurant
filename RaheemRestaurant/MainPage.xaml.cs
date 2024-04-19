@@ -6,44 +6,46 @@ using System.Text.Json;
 
 /* Author: Nawaf Raheem  */
 
+// Defines a partial class MainPage that inherits from ContentPage. This class is responsible for user login and navigation to various parts of the application.
 namespace RaheemRestaurant
 {
-
     public partial class MainPage : ContentPage
     {
+        // An ObservableCollection to manage user data loaded from a JSON file.
+        private ObservableCollection<Users> _allUsers;
 
-
-        private ObservableCollection<Users> _allUsers; 
-
+        // Constructor for MainPage initializes components and loads users from a JSON file.
         public MainPage()
         {
-            InitializeComponent();
-
-            _allUsers = new ObservableCollection<Users>();
-            LoadUsersFromFile();
-          
-
+            InitializeComponent(); // Initializes the XAML components.
+            _allUsers = new ObservableCollection<Users>(); // Initializes the user collection.
+            LoadUsersFromFile(); // Loads user data from a JSON file.
         }
 
+        // Loads user data from a JSON file located in a specific directory on the user's desktop.
         private void LoadUsersFromFile()
         {
+            // Constructs the full path to the JSON file containing user data.
             string folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "RaheemRestaurant/RaheemRestaurant/Resources/Raw");
             string filePath = Path.Combine(folderPath, "users.json");
 
+            // Checks if the JSON file exists before attempting to read.
             if (File.Exists(filePath))
             {
                 string jsonString = File.ReadAllText(filePath);
-                Debug.WriteLine("JSON String: " + jsonString);  // Output the JSON string to debug
+                Debug.WriteLine("JSON String: " + jsonString); // Outputs the JSON string for debugging purposes.
 
+                // Ensures the JSON string is not empty or just whitespace.
                 if (!string.IsNullOrWhiteSpace(jsonString))
                 {
                     try
                     {
+                        // Attempts to deserialize the JSON string to an ObservableCollection of Users.
                         var users = JsonSerializer.Deserialize<ObservableCollection<Users>>(jsonString);
                         if (users != null)
                         {
-                            _allUsers = users;  // Directly assign the deserialized users to _allUsers
-                            Debug.WriteLine("Loaded users count: " + _allUsers.Count);  // Check how many users were loaded
+                            _allUsers = users; // Assigns the deserialized users to the collection.
+                            Debug.WriteLine("Loaded users count: " + _allUsers.Count); // Outputs the count of loaded users.
                         }
                         else
                         {
@@ -66,71 +68,59 @@ namespace RaheemRestaurant
             }
         }
 
-
-
-
+        // Executes each time the MainPage becomes visible, particularly after navigation events.
         protected override void OnAppearing()
         {
             base.OnAppearing();
-
-            // Clear the userNameEntry and passwordEntry fields
+            // Clears the text entries for username and password to ensure privacy and readiness for new login attempts.
             userNameEntry.Text = string.Empty;
             passwordEntry.Text = string.Empty;
         }
 
-
-        // Mohammad Raja: Making use of the button to navigate to the MainCourse Page
+        // Event handler for the login button click. Attempts to authenticate the user.
         private async void loginBtn_ClickedAsync(object sender, EventArgs e)
         {
+            var username = userNameEntry.Text; // Retrieves the entered username.
+            var password = passwordEntry.Text; // Retrieves the entered password.
 
-            var username = userNameEntry.Text; // Access the Entry's text using its x:Name
-            var password = passwordEntry.Text;
-
-          /*  if (!string.IsNullOrWhiteSpace(username))
+            // Validates that neither the username nor password fields are empty.
+            if (string.IsNullOrEmpty(username) || string.IsNullOrEmpty(password))
             {
-                await Navigation.PushAsync(new MainCoursePage(username));
-            }
-          */
-
-            // Check if either userNameEntry or passwordEntry is null or empty
-            if (string.IsNullOrEmpty(userNameEntry.Text) || string.IsNullOrEmpty(passwordEntry.Text))
-            {
-                // Display the alert if either field is empty or not entered
                 await DisplayAlert("Error", "Please Enter your Username and Password", "I Understand");
             }
             else
             {
+                // Attempts to find a user that matches both username and password.
                 var user = _allUsers.FirstOrDefault(u => u.UserName == username && u.Password == password);
                 if (user != null)
                 {
-                    // Password matches, proceed to MainCoursePage
+                    // If a matching user is found, navigate to the MainCoursePage.
                     await Navigation.PushAsync(new MainCoursePage(username));
                 }
                 else
                 {
-                    // User not found or password does not match
+                    // If no matching user is found, display an error message.
                     await DisplayAlert("Error", "Invalid username or password", "OK");
                 }
             }
-
-
-
         }
 
+        // Navigates to the ForgetPasswordPage when the corresponding button is clicked.
         private void ForgetPassword_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new ForgetPasswordPage());
         }
 
+        // Navigates to the AccountSignupPage to allow new users to create an account.
         private void createNewAccountClicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new AccountSignupPage());
         }
 
+        // Placeholder for future implementation of navigation to an AdminPanelPage.
         private void adminPanelClicked(object sender, EventArgs e)
         {
-            //Admin Panel Details -- Need to create admin panel page
+            // Future implementation needed for admin panel navigation.
         }
     }
-
 }

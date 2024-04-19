@@ -1,38 +1,34 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <!-- Author: Nawaf Raheem  -->
-    
+
+<!-- Root element defining a ContentPage for the MainPage of the application -->
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:skia="clr-namespace:SkiaSharp.Extended.UI.Controls;assembly=SkiaSharp.Extended.UI"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RaheemRestaurant.MainPage"
-             >
+             x:Class="RaheemRestaurant.MainPage">
 
+    <!-- ScrollView allows content to scroll vertically, accommodating for interfaces that require more vertical space -->
     <ScrollView>
+        <!-- Grid layout provides a flexible way of displaying content in rows and columns -->
         <Grid>
+            <!-- Row definitions for organizing the content vertically into manageable sections -->
             <Grid.RowDefinitions>
                 <RowDefinition Height=".3*"/>
+                <!-- Row for banner image and animations -->
+                <RowDefinition Height="Auto"/>
+                <!-- Dynamic height for content such as labels and buttons -->
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="Auto"/>
-                <!-- Username Label + Entry RowDefinition -->
                 <RowDefinition Height="Auto"/>
-                <!-- Password Label + Entry RowDefinition -->
                 <RowDefinition Height="Auto"/>
-
-                <!-- Login Button RowDefinition -->
                 <RowDefinition Height="Auto"/>
-
-                <!--Forget your Password? Button RowDefinition -->
-                <RowDefinition Height="Auto"/>
-
-                <!--Create a new Account Button RowDefinition -->
-                <RowDefinition Height="Auto"/>
-
-                <!--Admin Panel RowDefinition -->
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
 
-                <Image Grid.Row ="0" Aspect="AspectFit" Source="restaurant_banner.jpg"/>
+            <!-- Image displayed at the top of the page -->
+            <Image Grid.Row="0" Aspect="AspectFit" Source="restaurant_banner.jpg"/>
 
+            <!-- Grid for placing dynamic Lottie animations using SkiaSharp -->
             <Grid ColumnDefinitions="*,*,*,*,*">
                 <skia:SKLottieView
                     Grid.Row="0"
@@ -42,51 +38,49 @@
                     VerticalOptions="Center"
                     Source="login_page.json" />
             </Grid>
+            <!-- Semi-transparent background to enhance readability of overlaid text -->
             <Grid BackgroundColor="DarkGoldenrod" Opacity=".8"/>
-                <Label Text="Welcome to Raheem Restaurant" FontSize="45" VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" 
-                   FontAttributes="Bold"/>
-                <Image Source="delivery_logo.png"
+            <!-- Welcome label with large font size and bold styling -->
+            <Label Text="Welcome to Raheem Restaurant" FontSize="45" VerticalTextAlignment="Center" HorizontalOptions="Center" TextColor="White" FontAttributes="Bold"/>
+            <!-- Images for decorative purposes, positioned at the start and end of the grid -->
+            <Image Source="delivery_logo.png"
                    HeightRequest="100"
                    Aspect="AspectFit"
-                    HorizontalOptions="Start"/>
+                   HorizontalOptions="Start"/>
             <Image Source="delivery_logo.png"
                    HeightRequest="120"
                    Aspect="AspectFit"
                    HorizontalOptions="End"/>
-            <!-- Login Label-->
+            <!-- Label indicating the login section -->
             <StackLayout Grid.Row="1" Orientation="Horizontal" HorizontalOptions="Center" Margin="10">
                 <Label Text="Login" TextColor="White" FontSize="40"/>
-
             </StackLayout>
 
-            <!-- Username Label + Entry -->
+            <!-- StackLayouts for username and password input, each containing a label and a corresponding entry field -->
+            <!-- Username input -->
             <StackLayout Grid.Row="2" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
                 <Label Text="Username:" VerticalOptions="Center" HorizontalOptions="Start"/>
                 <Entry Placeholder="Enter your username" HorizontalOptions="FillAndExpand" x:Name="userNameEntry"/>
             </StackLayout>
 
-            <!-- Password Label + Entry -->
+            <!-- Password input -->
             <StackLayout Grid.Row="3" Orientation="Horizontal" HorizontalOptions="FillAndExpand" Margin="10">
                 <Label Text="Password:" VerticalOptions="Center" HorizontalOptions="Start"/>
                 <Entry Placeholder="Enter your password" IsPassword="True" HorizontalOptions="FillAndExpand" x:Name="passwordEntry"/>
             </StackLayout>
 
-            <!-- Login Button -->
+            <!-- Login button -->
             <Button Grid.Row="4" Text="Login" HorizontalOptions="Center" Margin="10" x:Name="loginBtn" Clicked="loginBtn_ClickedAsync"/>
-            
-            <!--Forget your Password? Button -->
+
+            <!-- Button for users who forgot their password -->
             <Button x:Name="ForgetPassword" Grid.Row="5" Text="Forgot Your Password?" HorizontalOptions="Center" Margin="10" Clicked="ForgetPassword_Clicked"/>
 
-            <!--Create a new Account Button -->
+            <!-- Button to navigate to account creation page -->
             <Button Grid.Row="6" Text="Create a New Account" HorizontalOptions="Center" Margin="10" Clicked="createNewAccountClicked"/>
 
-            <!--Admin Panel Button -->
+            <!-- Button for accessing the admin panel, intended for administrative users -->
             <Button Grid.Row="7" Text="Admin Panel" HorizontalOptions="Center" Margin="10" Clicked="adminPanelClicked"/>
 
-
         </Grid>
-
-
-
     </ScrollView>
 </ContentPage>

@@ -6,24 +6,35 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RaheemRestaurant.Pages.MainCoursePage"
              Title="MainCoursePage">
+
+    <!-- ScrollView ensures that content can be scrolled vertically, accommodating interfaces with more content than fits on the screen -->
+
     <ScrollView>
-    <VerticalStackLayout >
-        <Label x:Name="greetingLabel"
+        <!-- VerticalStackLayout stacks child elements vertically, providing a straightforward linear layout for content -->
+
+        <VerticalStackLayout >
+         <!-- Label at the top of the page, dynamically bound to the FirstName property of the user to provide a personalized greeting -->
+
+            <Label x:Name="greetingLabel"
                Text="{Binding FirstName}"
             VerticalOptions="Center" 
             HorizontalOptions="Center" />
 
-        
+
+            <!-- Grid used to arrange content in a tabular format with specified row and column definitions -->
 
             <Grid ColumnSpacing="10" RowSpacing="10"  RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*,*" >
-
+                <!-- Each main course item has associated elements such as an image, labels for the name and cost, and a stepper for quantity selection -->
+                <!-- Section for Chicken Shawarma -->
                 <Image Source="shawarma_image.jpg" WidthRequest="100" Grid.Column="0"/>
                 <Label Text="Chicken Shawarma" Grid.Column="1" Grid.Row="0"/>
                 <Label Text="Cost: $15" Grid.Column="2" Grid.Row="0"/>
                 <Stepper x:Name="chickenShawarmaStepperTest" Grid.Column="3" Grid.Row="0" IsEnabled="True"  ValueChanged="chickenShawarmaStepperTest_ValueChanged" Minimum="0" Maximum="10" Increment="1" VerticalOptions="Start"/>
                 <Label Text="Quantity" Grid.Column="4" Grid.Row="0"/>
                 <Label Text="0" x:Name="chickenShawarmaCountLabel" Grid.Column="5" Grid.Row="0"/>
+                <!-- Label indicating that the following toggles are for selecting toppings -->
                 <Label Text="Toppings: " Grid.Row="1" Grid.Column="0"/>
+                <!-- Horizontal layout for toppings, allowing the user to toggle each option on or off -->
 
                 <HorizontalStackLayout Grid.Row="2" Grid.ColumnSpan="6" >
                     <Label Text="Price $1" />
@@ -42,6 +53,10 @@
                     <Label Text=" Cucumber   "/>
                     <Switch x:Name="chickenShawarmaCucumberTopping" IsToggled="False" PropertyChanged="chickenShawarmaCucumberTopping_PropertyChanged" Grid.Row="3" Grid.Column="4"/>
                 </HorizontalStackLayout>
+
+                <!-- Similar setup for other dishes like Butter Chicken, Chicken Biryani, Manakeesh, and Nihari -->
+                <!-- Repeat the same pattern for each dish, with unique identifiers and event handlers for each component -->
+
             </Grid>
 
             <Grid ColumnSpacing="10" RowSpacing="10"  RowDefinitions="*,*,*,*,*,*,*,*" ColumnDefinitions="*,*,*,*,*,*" >
@@ -160,18 +175,21 @@
                 </HorizontalStackLayout>
             </Grid>
 
-            
-        
+
+            <!-- Bottom layout section displaying the total price dynamically and providing navigation options -->
+
             <HorizontalStackLayout>
                 <Label Text="Your Total Price = $" />
                 <Label x:Name="totalLabel" Text="{Binding Total}" />
             </HorizontalStackLayout>
 
+            <!-- Navigation buttons that lead to other pages like Appetizers, Desserts and Drinks, and the Checkout Page -->
+
             <HorizontalStackLayout Spacing="40">
                 <Button Text="Total" x:Name="totalBtn" Clicked="totalBtn_Clicked"/>
                 <Button Text="Appetizer Page" x:Name="appetizerBtn" Clicked="appetizerBtn_Clicked"/>
-                <Button Text="Desert and Drinks Page"/>
-                <Button Text="Checkout Page"/>
+                <Button Text="Desert and Drinks Page" Clicked="dessertAndDrinksBtnPressed"/>
+                <Button Text="Checkout Page" Clicked="CheckoutPageButton_Clicked"/>
             </HorizontalStackLayout>
         
         </VerticalStackLayout>

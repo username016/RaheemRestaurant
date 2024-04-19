@@ -3,13 +3,18 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RaheemRestaurant.Pages.AppetizerPage"
              Title="AppetizerPage">
+    <!-- ScrollView allows the content to scroll vertically if the content exceeds the page size -->
     <ScrollView>
-        <VerticalStackLayout >
+        <!-- VerticalStackLayout allows for stacking UI elements vertically -->
+        <VerticalStackLayout>
+            <!-- Greeting label bound to the FirstName property of the view model -->
             <Label x:Name="greetingLabel"
                Text="{Binding FirstName}"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+               VerticalOptions="Center" 
+               HorizontalOptions="Center" />
 
+            <!-- Grid layout to display appetizer details such as image, name, cost, and controls to adjust quantity -->
+            <!-- Grid for Cheese Cake -->
             <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
                 <Image Source="cheesecakedesert.jpg" WidthRequest="100" Grid.Column="0"/>
                 <Label Text="Cheese Cake" Grid.Column="1" Grid.Row="0"/>
@@ -19,6 +24,7 @@
                 <Label Text="0" x:Name="cheeseCakeCountLabel" Grid.Column="5" Grid.Row="0"/>
             </Grid>
 
+            <!-- Grid for Cheese Fries -->
             <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
                 <Image Source="cheesefriesappetizer.jpg" WidthRequest="100" HeightRequest="100" Grid.Column="0"/>
                 <Label Text="Cheese Fries" Grid.Column="1" Grid.Row="0"/>
@@ -28,6 +34,7 @@
                 <Label Text="0" x:Name="cheeseFriesCountLabel" Grid.Column="5" Grid.Row="0"/>
             </Grid>
 
+            <!-- Grid for Gulab Jamun -->
             <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
                 <Image Source="gulabjamun.jpg" WidthRequest="100" Grid.Column="0"/>
                 <Label Text="Gulab Jamun" Grid.Column="1" Grid.Row="0"/>
@@ -37,6 +44,7 @@
                 <Label Text="0" x:Name="gulabJamunCountLabel" Grid.Column="5" Grid.Row="0"/>
             </Grid>
 
+            <!-- Grid for Marinated Olives and Cheese Ring -->
             <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
                 <Image Source="marinatedringappetizer.jpg" WidthRequest="100" Grid.Column="0"/>
                 <Label Text="Marinated Olives and Cheese Ring" Grid.Column="1" Grid.Row="0"/>
@@ -46,6 +54,7 @@
                 <Label Text="0" x:Name="marinatedRingCountLabel" Grid.Column="5" Grid.Row="0"/>
             </Grid>
 
+            <!-- Grid for Fruit Charcuterie -->
             <Grid ColumnSpacing="10" RowSpacing="10" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*,*,*">
                 <Image Source="fruitappetizer.jpg" WidthRequest="100" Grid.Column="0"/>
                 <Label Text="Fruit Charcuterie" Grid.Column="1" Grid.Row="0"/>
@@ -55,17 +64,18 @@
                 <Label Text="0" x:Name="fruitCharcuterieCountLabel" Grid.Column="5" Grid.Row="0"/>
             </Grid>
 
-
+            <!-- Display total price -->
             <HorizontalStackLayout>
                 <Label Text="Your Total Price = $" />
                 <Label x:Name="totalLabel" Text="{Binding Total}" />
             </HorizontalStackLayout>
 
+            <!-- Navigation buttons to other pages -->
             <HorizontalStackLayout Spacing="40">
                 <Button Text="Total" x:Name="totalBtn" Clicked="totalBtn_Clicked"/>
                 <Button Text="Main Course Page"/>
-                <Button Text="Desert and Drinks Page"/>
-                <Button Text="Checkout Page"/>
+                <Button Text="Desert and Drinks Page" Clicked="dessertAndDrinksClicked"/>
+                <Button Text="Checkout Page" Clicked="checkoutPageBtnClicked"/>
             </HorizontalStackLayout>
 
         </VerticalStackLayout>

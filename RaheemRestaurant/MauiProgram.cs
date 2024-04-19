@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using SkiaSharp.Views.Maui.Controls.Hosting;
-
+//Author Nawaf Raheem - Set up Skia Sharp for animated JSON files
 namespace RaheemRestaurant
 {
     public static class MauiProgram

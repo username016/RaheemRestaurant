@@ -8,13 +8,15 @@ using System.Threading.Tasks;
 
 namespace RaheemRestaurant.BusinessLogic
 {
+    // Define a class named 'ShoppingCart' to manage the shopping cart functionality in the restaurant application.
     public class ShoppingCart
     {
-
+        // Private dictionaries to store the main courses, appetizers, and desserts along with their quantities.
         private Dictionary<string, int> _mainCourses;
         private Dictionary<string, int> _appetizers;
         private Dictionary<string, int> _desserts;
 
+        // Constructor to initialize the shopping cart with empty dictionaries for main courses, appetizers, and desserts.
         public ShoppingCart()
         {
             _mainCourses = new Dictionary<string, int>();
@@ -22,38 +24,38 @@ namespace RaheemRestaurant.BusinessLogic
             _desserts = new Dictionary<string, int>();
         }
 
-        // Add a main course item
+        // Public method to add a main course item to the shopping cart.
         public void AddMainCourse(string itemName, int quantity)
         {
             AddItem(_mainCourses, itemName, quantity);
         }
 
-        // Add an appetizer item
+        // Public method to add an appetizer item to the shopping cart.
         public void AddAppetizer(string itemName, int quantity)
         {
             AddItem(_appetizers, itemName, quantity);
         }
 
-        // Add a dessert item
+        // Public method to add a dessert item to the shopping cart.
         public void AddDessert(string itemName, int quantity)
         {
             AddItem(_desserts, itemName, quantity);
         }
 
-        // Helper method to add an item to a specific dictionary
+        // Private helper method to add an item to a specific category in the shopping cart.
         private void AddItem(Dictionary<string, int> category, string itemName, int quantity)
         {
             if (category.ContainsKey(itemName))
             {
-                category[itemName] += quantity;
+                category[itemName] += quantity; // If the item is already in the cart, increment the quantity.
             }
             else
             {
-                category.Add(itemName, quantity);
+                category.Add(itemName, quantity); // If the item is not in the cart, add it with the specified quantity.
             }
         }
 
-        // List all items in the cart
+        // Public method to list all items in the shopping cart, categorized by type.
         public void ListItems()
         {
             Console.WriteLine("Shopping Cart:");
@@ -67,15 +69,13 @@ namespace RaheemRestaurant.BusinessLogic
             ListCategoryItems(_desserts);
         }
 
-        // Helper method to list items in a specific category
+        // Private helper method to list items from a specific category in the shopping cart.
         private void ListCategoryItems(Dictionary<string, int> category)
         {
             foreach (var item in category)
             {
-                Console.WriteLine($"{item.Key}: {item.Value}");
+                Console.WriteLine($"{item.Key}: {item.Value}"); // Print each item and its quantity.
             }
         }
-
-
     }
 }
