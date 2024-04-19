@@ -1,8 +1,8 @@
-// Author: Mohammad Raja
+
 using RaheemRestaurant.BusinessLogic;
 namespace RaheemRestaurant.Pages;
 
-
+// Author: Mohammad Raja
 // Defines a partial class for the MainCoursePage, handling the business logic for main course selections and interactions.
 
 public partial class MainCoursePage : ContentPage

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RaheemRestaurant.Pages.AppetizerPage"
              Title="AppetizerPage">
+    <!-- Author Mohammed Raja-->
     <!-- ScrollView allows the content to scroll vertically if the content exceeds the page size -->
     <ScrollView>
         <!-- VerticalStackLayout allows for stacking UI elements vertically -->
